@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col justify-center items-center mt-28 text-center px-6 md:px-0">
+        <!-- Affichage des erreurs -->
+        <div class="text-red-500 mb-4">
+            {{ form_errors(registrationForm) }}
+        </div>
+
+        <!-- Formulaire d'inscription -->
+        {{ form_start(registrationForm) }}
+            <h1 class="text-4xl mb-12 font-semibold text-gray-800">Register</h1>
+            
+            <!-- Email -->
+            <div class="mb-6">
+                {{ form_row(registrationForm.email, {
+                    'attr': {'class': 'mt-2 block  w-72 h-10 border border-black  rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
+                }) }}
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="mb-6">
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Mot de passe',
+                    'attr': {'class': 'mt-2 block w-72 h-10 border border-black  rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
+                }) }}
+            </div>
+            <div class="mb-6">
+                {{ form_row(registrationForm.confirmPassword, {
+                    label: 'Confirmer',
+                    'attr': {'class': 'mt-2 block w-72 h-10 border border-black  rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
+                }) }}
+            </div>
+
+            <!-- Terms d'accord -->
+            <div class="mb-6">
+                {{ form_row(registrationForm.agreeTerms, {
+                    'attr': {'class': 'form-checkbox text-blue-500'}
+                }) }}
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="bg-slate-800 text-white p-2 rounded-lg">
+                Confimer
+            </button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}

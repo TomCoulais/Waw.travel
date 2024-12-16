@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <form method="post" class="flex flex-col justify-center items-center mt-28">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1 class="text-4xl mb-20 font-weight-normal">Connexion</h1>
+        <label for="username" class="text-2xl mb-2">Email</label>
+        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control w-72 h-10 rounded-xl border border-black pl-4 placeholder:text-slate-400" placeholder="Ecrire son Email" autocomplete="email" required autofocus>
+        <label for="password" class="text-2xl my-2">Password</label>
+        <input type="password" name="_password" id="password" class="form-control w-72 h-10 rounded-xl border border-black pl-4 placeholder:text-slate-400" placeholder="Ecrire son mot de passe" autocomplete="current-password" required>
+        <a href="{{ path("app_register") }}" class="mt-2 mb-8 text-blue-800">Vous n'avez pas de compte ? </a>
+        <a class="mb-3 p-3 border-b-2 border-black text-blue-800">Mot de passe oublié ? </a>
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <input type="checkbox" name="_remember_me" id="_remember_me">
+                <label for="_remember_me">Remember me</label>
+            </div>
+        #}
+
+        <button class="bg-slate-800 text-white p-2 rounded-lg" type="submit">
+            Confirmer
+        </button>
+    </form>
+{% endblock %}

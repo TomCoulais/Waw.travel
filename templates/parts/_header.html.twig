@@ -1,0 +1,93 @@
+<nav class="bg-navgreen text-white fixed bottom-0 w-full flex justify-around  items-center py-2 px-4 md:flex-row  md:top-0 md:left-0 md:z-50 md:h-16">
+  <div class="hidden md:block md:flex md:flex-row items-center">
+    <img src="{{ asset('img/logo.png') }}" alt="Logo" class=" md:h-16 md:w-16">
+    <span>Waw.travel</span>
+  </div>
+  <!-- Accueil -->
+  <div class="md:flex md:justify-start flex flex-row gap-24 md:gap-7">
+    <a class="flex flex-col md:flex-row items-center text-xs hover:text-gray-300 {% if app.request.attributes.get('_route') == 'app_main' %}active{% endif %}  md:mr-5" href="{{ path('app_main') }}">
+      <div class="circle">
+        <img class="h-6 w-6 mb-1 md:mb-0" src="{{ asset('img/home.svg') }}" alt="Accueil">
+      </div>
+      <span>Accueil</span>
+    </a>
+
+    <!-- Voyages -->
+    <a class="flex flex-col md:flex-row items-center text-xs hover:text-gray-300 {% if app.request.attributes.get('_route') == 'app_voyage' %}active{% endif %} md:mr-5" href="{{ path('app_voyage') }}">
+      <div class="circle">
+        <img class="h-6 w-6 mb-1 md:mb-0" src="{{ asset('img/voyage.svg') }}" alt="Voyages">
+      </div>
+      <span>Voyages</span>
+    </a>
+
+    <!-- Connexion -->
+    <a class="flex flex-col md:flex-row items-center text-xs hover:text-gray-300 {% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %} md:mr-5" href="{{ path('app_login') }}">
+      <div class="circle">
+        <img class="h-6 w-6 mb-1 md:mb-0" src="{{ asset('img/user.svg') }}" alt="Connexion">
+      </div>
+      <span>Connexion</span>
+    </a>
+
+    <!-- S'inscrire -->
+    <a class="hidden flex flex-col md:flex-row items-center text-xs hover:text-gray-300 md:block {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %} md:mr-5" href="{{ path('app_register') }}">
+      <span>S'inscrire</span>
+    </a>
+  </div>
+</nav>
+
+<style>
+/* Icône active avec un fond solide */
+
+.circle {
+    background-color: transparent; /* Retirer le fond */
+    border-radius: 50%; /* Cercle parfait */
+    padding: 0; /* Supprimer l'espacement autour de l'icône */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none; /* Supprimer les ombres */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Style actif pour mobile */
+.active .circle {
+    background-color: #141414; /* Fond légèrement transparent */
+    transform: scale(1.1); /* Légère mise en valeur de l'icône active */
+}
+
+/* Version mobile : fond actif, icônes en blanc */
+@media screen and (max-width: 767px) {
+    .circle {
+        background-color: #1B580F; /* Fond légèrement transparent */
+        padding: 10px; /* Espacement autour de l'icône */
+    }
+
+    .active .circle {
+        background-color: #141414; /* Fond actif */
+        transform: scale(1.1); /* Légère mise en valeur de l'icône active */
+    }
+
+    .active img {
+        filter: brightness(0) invert(1); /* Rend l'image blanche */
+    }
+}
+
+/* Pour les écrans plus larges (PC et tablettes) : Réinitialisation complète des styles actifs */
+@media screen and (min-width: 768px) {
+    .circle {
+        background-color: transparent; /* Pas de fond sur PC */
+        padding: 0; /* Supprimer l'espacement autour de l'icône */
+        box-shadow: none; /* Pas d'ombre */
+    }
+
+    .active .circle {
+        background-color: transparent; /* Pas de fond actif */
+        transform: none; /* Pas de mise en valeur active */
+    }
+
+    .active img {
+        filter: none; /* Pas de filtre sur l'image */
+    }
+}
+
+</style>
