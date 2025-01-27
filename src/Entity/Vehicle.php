@@ -5,18 +5,18 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\VehiclesRepository;
+use App\Repository\VehicleRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ORM\Entity(repositoryClass: CheckpointRepository::class)]
-#[ORM\Table(name: '`vehicles`')]  
+#[ORM\Entity(repositoryClass: VehicleRepository::class)]
+#[ORM\Table(name: '`vehicle`')]  
 class Vehicle
 {
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?integer $id;
+    private ?int $id;
 
     
     #[ORM\Column(length:255)]

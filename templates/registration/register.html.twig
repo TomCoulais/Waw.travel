@@ -12,7 +12,14 @@
         <!-- Formulaire d'inscription -->
         {{ form_start(registrationForm) }}
             <h1 class="text-4xl mb-12 font-semibold text-gray-800">Register</h1>
-            
+
+            <!-- Pseudo -->
+            <div class="mb-6">
+                {{ form_row(registrationForm.username, {
+                    'attr': {'class': 'mt-2 block w-72 h-10 border border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
+                }) }}
+            </div>
+
             <!-- Email -->
             <div class="mb-6">
                 {{ form_row(registrationForm.email, {
@@ -43,7 +50,7 @@
 
             <!-- Bouton de soumission -->
             <button type="submit" class="bg-slate-800 text-white p-2 rounded-lg">
-                Confimer
+                Confirmer
             </button>
         {{ form_end(registrationForm) }}
     </div>

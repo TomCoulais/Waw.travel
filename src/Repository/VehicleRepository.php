@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Vehicles;
+use App\Entity\Vehicle;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Vehicles>
+ * @extends ServiceEntityRepository<Vehicle>
  */
-class VehiclesRepository extends ServiceEntityRepository
+class VehicleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Vehicles::class);
+        parent::__construct($registry, Vehicle::class);
     }
 
 //    /**
-//     * @return Vehicles[] Returns an array of Vehicles objects
+//     * @return Vehicle[] Returns an array of Vehicles objects
 //     */
 //    public function findByExampleField($value): array
 //    {

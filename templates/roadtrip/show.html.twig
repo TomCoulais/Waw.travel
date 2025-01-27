@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du voyage{% endblock %}
+
+{% block body %}
+    <div class="container max-w-4xl mx-auto p-6 md:mt-12">
+
+        <div class="relative mb-6">
+            <img src="{{ asset('uploads/' ~ roadtrips.coverImage) }}" alt="{{ roadtrips.title }}"
+                 class="w-full h-96 object-cover rounded-lg shadow-lg">
+            <div class="absolute top-4 left-4 text-white bg-opacity-60 bg-black p-2 rounded">
+                <span class="text-xl font-semibold">{{ roadtrips.title }}</span>
+            </div>
+        </div>
+
+        <div class="space-y-4 text-lg text-gray-700 md:flex md:flex-col md:items-center">
+            <p><strong class="text-gray-900">Créé par :</strong> {{ roadtrips.user.username }}</p>
+            <p><strong class="text-gray-900">Date de début :</strong> {{ roadtrips.startDate|date('d/m/Y') }}</p>
+            <p><strong class="text-gray-900">Date de fin :</strong> {{ roadtrips.endDate|date('d/m/Y') }}</p>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="{{ path('app_roadtrips') }}" 
+               class="inline-block px-6 py-3 mt-4 text-white bg-button rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                &#x2190; Retour aux voyages
+            </a>
+        </div>
+    </div>
+{% endblock %}

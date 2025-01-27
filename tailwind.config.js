@@ -11,9 +11,11 @@ module.exports = {
         nunito: ['Nunito', 'sans-serif'],  // Ajouter la police Nunito
       },
       colors: {
-        forestGreen: '#EEFFE5',
+        whiteGreen: '#EEFFE5',
         navgreen: '#1B580F',
         button:'#1F8506',
+        forestgreen:'#23A300',
+        blackgreen: '#083201'
       },
     },
   },

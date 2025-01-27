@@ -1,25 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Waw | Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section class="relative">
+        <img src="{{ asset('img/banniere.jpg') }}" alt="Bannière" class="md:h-full md:w-full object-cover z-0">
+        
+        <div class="absolute inset-0 bg-black opacity-50"></div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <p>Email: {{ app.user.email }}</p>
-{% endif %}
-    <p>
-        {% if app.session.get('user') %}
-            <strong>Connecté</strong>
-            <a href="{{ path("app_logout") }}">Se déconnecter</a>
+        <div class="absolute inset-0 flex flex-col justify-center items-start px-24 z-10">
+            <h1 class="text-white text-4xl font-semibold mb-4">
+                Waw - Une solution pour revivre son Roadtrip !
+            </h1>
+
+            <a href="#roadtrip" class="text-white font-semibold text-2xl bg-button hover:bg-blackgreen rounded-lg px-6 py-2 transition duration-300">
+                En savoir plus
+            </a>
+        </div>
+    </section>
+    <section class="relative px-24 mt-6">
+        <h1 class="text-4xl font-semibold mb-6">A propos</h1>
+        <p class="indent-8 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sequi aut laborum adipisci totam nemo fuga. 
+        Eum ut suscipit illum mollitia officiis eaque accusantium odit? Mollitia, doloribus officiis? Pariatur, maxime!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit distinctio consequuntur facere, voluptate itaque 
+        veniam, nostrum mollitia quas unde labore deleniti. Velit quis earum nesciunt delectus? Quos, facere. Totam, dolore.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sequi aut laborum adipisci totam nemo fuga. 
+        Eum ut suscipit illum mollitia officiis eaque accusantium odit? Mollitia, doloribus officiis? Pariatur, maxime!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit distinctio consequuntur facere, voluptate itaque 
+        veniam, nostrum mollitia quas unde labore deleniti. Velit quis earum nesciunt delectus? Quos, facere. Totam, dolore.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sequi aut laborum adipisci totam nemo fuga. 
+        Eum ut suscipit illum mollitia officiis eaque accusantium odit? Mollitia, doloribus officiis? Pariatur, maxime!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit distinctio consequuntur facere, voluptate itaque 
+        veniam, nostrum mollitia quas unde labore deleniti. Velit quis earum nesciunt delectus? Quos, facere. Totam, dolore.
+        </p>
+    </section>
+
+<section id="roadtrip" class="relative px-24 mt-6">
+    <h1 class="text-4xl font-semibold mb-6">Liste des road trips créés par la communauté</h1>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
+        {% for voyages in communityVoyage|slice(0, 4) %}
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img class="" src="{{ asset('uploads/' ~ voyages.coverImage) }}" alt="{{ voyages.title }}"
+                    class="w-full h-64 object-cover rounded-t-lg">
+                <div class="p-2 text-center bg-forestgreen w-full">
+                    <p class="text-lg font-semibold text-white">De {{ voyages.user.username }}</p>
+                </div>
+                <div class="w-full p-2 text-white font-semibold bg-blackgreen">
+                    <a href="{{ path('app_search_roadtrip', {'id': voyages.id}) }}">En savoir plus &#x3009;</a>
+                </div>
+            </div>
         {% else %}
-            <strong>Non connecté</strong>
-        {% endif %}
-    </p>
-</div>
+            <p>Aucun voyage communautaire disponible.</p>
+        {% endfor %}
+    </div>
+        <a class="flex justify-center mx-96 my-24 text-center p-2 rounded-lg text-white font-semibold bg-button hover:bg-blackgreen" 
+        href="{{ path('app_roadtrips') }}">En savoir plus</a>
+</section>
+
 {% endblock %}

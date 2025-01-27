@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto p-6 relative">
+        <div class="flex items-center bg-navgreen w-full h-44 absolute top-0 left-0 z-0"></div>
+
+        <section class="mt-20 z-10 relative mt-16 flex flex-col items-center">
+            <div class="w-40 h-40 bg-gray-300 rounded-full overflow-hidden ">
+                <img src="{{ asset('images/default-profile.jpg') }}" alt="Photo de profil" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-3xl font-semibold text-gray-800">Bienvenue,</h2>
+            <h2 class="text-3xl font-semibold text-gray-800">{{ app.user.username }}</h2>
+        </section>
+
+        <section class="flex flex-col items-center gap-4 mt-4">
+            <a href="{{ path('app_user_roadtrip', { 'username': app.user.username }) }}" class="w-full bg-button p-4 text-xl text-white font-semibold rounded-xl">
+                🚗 Gérer mes road trips
+            </a>
+            <button class="w-full bg-button p-4 text-xl text-left text-white font-semibold rounded-xl">
+                ⚙️ Paramètres de l'utilisateur
+            </button>
+        </section>
+    </div>
+{% endblock %}

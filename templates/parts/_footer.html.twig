@@ -1,5 +1,31 @@
+<footer class="hidden md:block md:bg-gray-800 md:text-white md:text-center md:py-4 md:mt-auto md:z-50 d:relative md:bottom-0">
+    <section class="flex flex-col items-center justify-center">
+        <img src="{{ asset('img/logo.png') }}" alt="Logo" class="md:h-32 md:w-32">
+        <h1 class="text-2xl">Waw.travel</h1>
+    </section>
+    <hr class="border-t-2 border-gray-300 my-4">
 
-    <footer class="hidden md:block md:bg-gray-800 md:text-white md:text-center md:py-4 md:mt-auto md:relative">
-        <p>&copy; 2024 Waw.travel</p>
-    </footer>
-</div>
+    <section class="flex justify-around">
+        <ul class="flex flex-col space-y-2 text-left">
+            <h2 class="text-lg font-semibold">LIENS</h2>
+            <li><a href="{{ path('app_main') }}">Accueil</a></li>
+            <li><a href="{{ path('app_roadtrips') }}">Les road trips</a></li>
+        </ul>
+        <ul class="flex flex-col space-y-2 text-left">
+            <h2 class="text-lg font-semibold ">COMMENCER</h2>
+            <li><a href="{{ path('app_register') }}">Inscrivez-vous</a></li>
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+            <li><a {% if app.user %} href="{{ path('app_new_roadtrip') }}" {% endif %} href="{{ path('app_login') }}">Créez son road trip</a></li>
+        </ul>
+    </section>
+
+    <hr class="border-t-2 border-gray-300 my-4">
+    <section class="flex justify-between items-center px-4 py-2">
+        <p>&copy; 2024 Waw of New Horizons. Tous droits réservés.</p>
+        <div class="flex space-x-4 ml-auto">
+            <a href="#" class="text-blue-500">Mention légales</a>
+            <a href="#" class="text-blue-500">Confidentialité</a>
+        </div>
+    </section>
+
+</footer>
