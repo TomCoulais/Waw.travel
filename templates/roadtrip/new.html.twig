@@ -3,7 +3,7 @@
 {% block title %}Créez un voyage{% endblock %}
 
 {% block body %}
-    <div class="flex flex-col justify-center items-center mt-12 text-center px-6 md:px-0">
+    <div class="flex flex-col justify-center items-center mt-32 md:mt-64 text-center px-6 md:px-0">
         <!-- Affichage des erreurs (si présentes) -->
         <div class="text-red-500 mb-4">
             {{ form_errors(form) }}
@@ -15,14 +15,14 @@
             <!-- Étape 1 : Titre et véhicule -->
             <div id="step1" class="step-container">
                 <div class="mb-6">
-                    {{ form_label(form.title, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
+                    {{ form_label(form.title, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
                     {{ form_widget(form.title, {
                         'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
                     }) }}
                 </div>
 
                 <div class="mb-6">
-                    {{ form_label(form.vehicle, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
+                    {{ form_label(form.vehicle, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
                     {{ form_widget(form.vehicle, {
                         'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
                     }) }}
@@ -34,14 +34,14 @@
             <!-- Étape 2 : Dates -->
             <div id="step2" class="step-container hidden">
                 <div class="mb-6">
-                    {{ form_label(form.startDate, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
+                    {{ form_label(form.startDate, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
                     {{ form_widget(form.startDate, {
                         'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
                     }) }}
                 </div>
 
                 <div class="mb-6">
-                    {{ form_label(form.endDate, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
+                    {{ form_label(form.endDate, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
                     {{ form_widget(form.endDate, {
                         'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'}
                     }) }}
@@ -53,18 +53,32 @@
             <!-- Étape 3 : Image de couverture -->
             <div id="step3" class="step-container hidden">
                 <div class="mb-6">
-                    {{ form_label(form.coverImage, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
-                    {{ form_widget(form.coverImage, {
-                        'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500', 'id': 'cover_image_input'}
-                    }) }}
+                    {{ form_label(form.coverImage, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
+                    
+                    <div class="relative">
+                        {{ form_widget(form.coverImage, {
+                            'attr': {
+                                'class': 'absolute opacity-0 cursor-pointer inset-0 w-full h-full',
+                                'id': 'cover_image_input'
+                            }
+                        }) }}
+                        <label for="cover_image_input" class=" w-full h-12 flex items-center justify-center rounded-xl bg-button text-white font-medium text-lg cursor-pointer hover:bg-green-900 focus:outline-none">
+                            Choisir une image
+                        </label>
+                    </div>
                 </div>
 
-                <div class="mb-6">
-                    {{ form_label(form.isCommunity, null, { 'label_attr': {'class': 'text-lg font-medium text-gray-700'} }) }}
+            <div class="mb-6">
+                {{ form_label(form.isCommunity, null, { 'label_attr': {'class': 'text-2xl font-medium text-gray-700'} }) }}
+                
+                <div class="mt-2">
                     {{ form_widget(form.isCommunity, {
-                        'attr': {'class': 'mt-2 block w-full h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500', 'id': 'cover_image_input'}
+                        'attr': {
+                            'class': 'block w-full h-8 border-2 border-gray-300 bg-white text-gray-700 font-medium text-lg cursor-pointer'
+                        }
                     }) }}
                 </div>
+            </div>
 
                 <div class="mb-6">
                     {{ form_row(form.submit, {

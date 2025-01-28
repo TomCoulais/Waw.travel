@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions Légales{% endblock %}
+
+{% block body %}
+    <div class="text-center container mx-auto my-24 px-6 md:px-12 bg-green-50 shadow-lg rounded-lg border border-green-200 p-8">
+        <h1 class="text-4xl font-semibold text-gray-800 mb-8">Mentions Légales</h1>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">1. Éditeur du site</h2>
+            <p class="text-lg text-gray-600">
+                Ce site est édité par :
+            </p>
+            <ul class="text-lg text-gray-600 mt-2 space-y-2">
+                <li><strong>Nom :</strong> [Votre Nom ou Raison Sociale]</li>
+                <li><strong>Adresse :</strong> [Votre adresse postale]</li>
+                <li><strong>Téléphone :</strong> [Votre numéro de téléphone]</li>
+                <li><strong>Email :</strong> [Votre adresse email]</li>
+                <li><strong>SIRET :</strong> [Numéro SIRET]</li>
+                <li><strong>Directeur de la publication :</strong> [Nom du responsable de la publication]</li>
+            </ul>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">2. Hébergement</h2>
+            <p class="text-lg text-gray-600">
+                Le site est hébergé par :
+            </p>
+            <ul class="text-lg text-gray-600 mt-2 space-y-2">
+                <li><strong>Nom :</strong> [Nom de l'hébergeur]</li>
+                <li><strong>Adresse :</strong> [Adresse de l'hébergeur]</li>
+                <li><strong>Téléphone :</strong> [Numéro de téléphone de l'hébergeur]</li>
+                <li><strong>Site Web :</strong> <a href="[URL de l'hébergeur]" class="text-blue-500 underline hover:text-blue-700">[URL de l'hébergeur]</a></li>
+            </ul>
+        </section>
+
+        <section class="mb-12 mx-24">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">3. Propriété intellectuelle</h2>
+            <p class="text-lg text-gray-600">
+                Tous les contenus présents sur ce site (textes, images, logos, etc.) sont protégés par le droit d'auteur. 
+                Toute reproduction, distribution ou utilisation sans autorisation préalable est strictement interdite.
+            </p>
+        </section>
+
+        <section class="mb-12 mx-24">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">4. Données personnelles</h2>
+            <p class="text-lg text-gray-600">
+                Les données personnelles collectées sur ce site sont utilisées uniquement dans le cadre légal prévu en France pour la protection des données personnelles.
+            </p>
+            <p class="text-lg text-gray-600 mt-2">
+                Conformément à la loi <strong>Informatique et Libertés</strong>, vous disposez d'un droit d'accès, de modification, de rectification et de suppression des données vous concernant. 
+                Pour exercer ce droit, contactez-nous à l'adresse suivante : [Votre adresse email].
+            </p>
+        </section>
+
+        <section class="mb-12 mx-24">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">5. Limitation de responsabilité</h2>
+            <p class="text-lg text-gray-600">
+                L'éditeur du site ne peut être tenu responsable des erreurs ou omissions dans les informations diffusées sur le site.
+                De plus, l'éditeur ne peut être tenu responsable des dommages directs ou indirects liés à l'utilisation du site.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">6. Contact</h2>
+            <p class="text-lg text-gray-600">
+                Pour toute question concernant les mentions légales ou le site en général, veuillez nous contacter à l'adresse suivante :
+            </p>
+            <p class="text-lg text-gray-600 mt-2">
+                <strong>Email :</strong> <a href="mailto:[Votre adresse email]" class="text-blue-500 underline hover:text-blue-700">[Votre adresse email]</a>
+            </p>
+        </section>
+    </div>
+{% endblock %}

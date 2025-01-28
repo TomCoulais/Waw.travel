@@ -23,6 +23,12 @@ class MainController extends AbstractController
             'communityVoyage' => $communityVoyage,
         ]);
     }
-    
+    #[Route('/mentions-legales', name: 'app_mention_legales')]
+    public function mentionsLegales(): Response
+    {
+        return $this->render('main/mentions-legales.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
     
 }

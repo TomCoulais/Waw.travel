@@ -1,4 +1,4 @@
-<nav class="{% if app.request.attributes.get('_route') == 'app_main' %}md:bg-none{% endif %}bg-navgreen text-white fixed bottom-0 w-full flex justify-around items-center py-2 px-4 md:flex-row md:top-0 md:left-0 md:z-50 md:h-16">
+<nav class="{% if app.request.attributes.get('_route') == 'app_main' %}accueil-nav {% endif %}bg-navgreen text-white fixed bottom-0 w-full flex justify-around items-center py-2 px-4 md:flex-row md:top-0 md:left-0 z-50 md:h-16">
   <div class="hidden md:block md:flex md:flex-row items-center">
     <img src="{{ asset('img/logo.png') }}" alt="Logo" class="md:h-16 md:w-16">
     <span>Waw.travel</span>
@@ -43,15 +43,25 @@
       </a>
 
       <!-- Lien S'inscrire -->
-      <a class="hidden flex flex-col text-lg md:flex-row items-center text-xs md:text-base md:font-semibold hover:text-gray-300 md:block {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %} md:mr-5" href="{{ path('app_register') }}">
+      <a class="hidden flex flex-col text-lg md:flex-row items-center  md:text-base md:font-semibold hover:text-gray-300 md:block {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %} md:mr-5" href="{{ path('app_register') }}">
         <span>S'inscrire</span>
       </a>
     {% endif %}
   </div>
 </nav>
+<script src="{{ asset('js/navAnimation.js') }}" defer></script>
+
 <style>
 .active{
-  border-bottom:2px solid white;
+  border-bottom: 2px solid white;
+}
+.accueil-nav{
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.accueil-nav.scroll{
+  background-color: #1B580F;
 }
 
 @media (max-width: 1250px){
@@ -63,6 +73,9 @@
     background: #23A300;
     border-radius: 100%;
     padding: 10px;
+  }
+  .accueil-nav{
+    background: #1B580F;
   }
 }
 </style>

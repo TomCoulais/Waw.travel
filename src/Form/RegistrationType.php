@@ -20,6 +20,7 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
+                'label' => 'Pseudo',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a username',
@@ -37,10 +38,12 @@ class RegistrationType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter nos conditions.',
                     ]),
                 ],
+                'label' => 'J’accepte les conditions générales',
             ])
+            
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
