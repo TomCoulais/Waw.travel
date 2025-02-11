@@ -16,11 +16,11 @@ class MainController extends AbstractController
     {
         $repository = $entityManager->getRepository(RoadTrip::class);
         
-        $communityVoyage = $repository->findBy(['isCommunity' => true]);
+        $communityRaodTrip = $repository->findBy(['isCommunity' => true]);
         
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
-            'communityVoyage' => $communityVoyage,
+            'communityRaodTrip' => $communityRaodTrip,
         ]);
     }
     #[Route('/mentions-legales', name: 'app_mention_legales')]

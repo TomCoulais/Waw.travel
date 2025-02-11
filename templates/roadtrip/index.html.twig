@@ -9,15 +9,20 @@
         <h2 class="text-4xl font-semibold text-center mb-4">Road trips communautaires</h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
-          {% for voyages in communityRoadTrip %}
+          {% for roadtrip in communityRoadTrip %}
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img class="" src="{{ asset('uploads/' ~ voyages.coverImage) }}" alt="{{ voyages.title }}"
-                    class="w-full h-64 object-cover rounded-t-lg">
+            <div class="relative">
+                <img src="{{ asset('uploads/' ~ roadtrip.coverImage) }}" alt="{{ roadtrip.title }}"
+                    class="w-full h-24 object-cover ">
+                <div class="absolute top-4 left-4 text-white bg-opacity-60 bg-black p-2 rounded">
+                    <span class="text-xl font-semibold">{{ roadtrip.title }}</span>
+                </div>
+            </div>
                 <div class="p-2 text-center bg-forestgreen w-full">
-                    <p class="text-lg font-semibold text-white">De {{ voyages.user.username }}</p>
+                    <p class="text-lg font-semibold text-white">De {{ roadtrip.user.username }}</p>
                 </div>
                 <div class="w-full p-2 text-white font-semibold bg-blackgreen">
-                    <a href="{{ path('app_search_roadtrip', {'id': voyages.id}) }}">En savoir plus &#x3009;</a>
+                    <a href="{{ path('app_search_roadtrip', {'id': roadtrip.id}) }}">En savoir plus &#x3009;</a>
                 </div>
 
             </div>
