@@ -1,6 +1,7 @@
 # Waw - Where Are We 🌍🚐  
 
-**Waw** est une plateforme gratuite permettant aux voyageurs de partager leurs road trips avec leur famille et leurs amis. Elle vise à rassembler une communauté d'adeptes du voyage et prévoit d'intégrer un modèle de vente commissionnée d'articles de voyage et de camping via des partenaires.  
+**Waw** est une plateforme permettant aux utilisateurs inscrits de créer un carnet
+de voyage (type road trip avec plusieurs étapes).
 
 ---
 
