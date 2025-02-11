@@ -45,3 +45,4 @@ symfony console doctrine:migrations:migrate
 symfony server:start -d
 symfony console tailwind:build --watch
 ```
+---
