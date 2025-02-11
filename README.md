@@ -31,7 +31,7 @@ Pour cette partie, il faut avoir changé la ligne consacrée à la base de donn�
 ```.env
 DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8&charset=utf8mb4"
 ```
-
+---
 ```bash
 symfony console doctrine:database:create
 symfony console make:migration
