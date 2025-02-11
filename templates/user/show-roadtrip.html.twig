@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="mt-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
+    <div class="mt-20 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
         {% for roadtrip in roadtrips %}
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="relative">
@@ -27,7 +27,7 @@
                     <a href="{{ path('app_update_roadtrip', {'id': roadtrip.id}) }}">Modifier</a>
                 </div>
 
-                <form class="w-full bg-red-600 text-white font-semibold text-center p-2" action="{{ path('app_delete_roadtrip', { 'id': roadtrip.id }) }}" method="POST">
+                <form class="w-full bg-red-600 text-white font-semibold text-center p-2" action="{{ path('app_delete_roadtrip', { 'id': roadtrip.id }) }}">
                     <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
             </div>

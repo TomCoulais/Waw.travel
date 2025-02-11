@@ -4,16 +4,13 @@
 
 {% block body %}
     <div class="flex flex-col justify-center items-center mt-28 text-center px-6 md:px-0">
-        <!-- Affichage des erreurs -->
         <div class="text-red-500 mb-4">
             {{ form_errors(registrationForm) }}
         </div>
 
-        <!-- Formulaire d'inscription -->
         {{ form_start(registrationForm) }}
-            <h1 class="text-4xl mb-12 font-semibold text-gray-800">Créer un compte</h1>
+            <h1 class="text-4xl mb-12 font-semibold text-white">Créer un compte</h1>
 
-            <!-- Pseudo -->
             <div class="mb-6">
                 {{ form_row(registrationForm.username, {
                     'label_attr': {'class': 'text-2xl'},
@@ -21,7 +18,6 @@
                 }) }}
             </div>
 
-            <!-- Email -->
             <div class="mb-6">
                 {{ form_row(registrationForm.email, {
                     'label_attr': {'class': 'text-2xl'},
@@ -29,7 +25,6 @@
                 }) }}
             </div>
 
-            <!-- Mot de passe -->
             <div class="mb-6">
                 {{ form_row(registrationForm.plainPassword, {
                     'label_attr': {'class': 'text-2xl'},
@@ -44,8 +39,6 @@
                     'attr': {'class': 'pl-4 mt-2 block w-72 h-10 border border-black  rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-black'}
                 }) }}
             </div>
-
-            <!-- Terms d'accord -->
             <div class="mb-6">
                 <div class="flex items-center justify-center space-x-2">
                     {{ form_widget(registrationForm.agreeTerms, {
@@ -62,9 +55,7 @@
                 </div>
                 {{ form_errors(registrationForm.agreeTerms) }}
             </div>
-
-            <!-- Bouton de soumission -->
-            <button type="submit" class="bg-slate-800 text-white p-2 rounded-lg">
+            <button type="submit" class="bg-button hover:bg-blackgreen transition delay-100 duration-300 ease-in-out text-white p-2 rounded-lg">
                 Confirmer
             </button>
         {{ form_end(registrationForm) }}

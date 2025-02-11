@@ -26,7 +26,6 @@
         <span>Créer road trips</span>
       </a>
 
-      <!-- Lien Profil -->
       <a class="flex flex-col md:flex-row items-center text-xs md:text-base md:font-semibold hover:text-gray-300 {% if app.request.attributes.get('_route') == 'app_profile' %}active{% endif %} md:mr-5" href="{{ path('app_profile') }}">
         <div class="circle">
           <img class="h-6 w-6 mb-1 md:hidden  md:mb-0" src="{{ asset('img/user.svg') }}" alt="Profil">
@@ -34,7 +33,6 @@
         <span>Profil</span>
       </a>
     {% else %}
-      <!-- Lien Connexion -->
       <a class="flex flex-col md:flex-row items-center text-xs md:text-base md:font-semibold hover:text-gray-300 {% if app.request.attributes.get('_route') == 'app_login' %}active{% endif %} md:mr-5" href="{{ path('app_login') }}">
         <div class="circle">
           <img class="h-6 w-6 mb-1 md:hidden  md:mb-0" src="{{ asset('img/user.svg') }}" alt="Connexion">
@@ -42,7 +40,6 @@
         <span>Connexion</span>
       </a>
 
-      <!-- Lien S'inscrire -->
       <a class="hidden flex flex-col text-lg md:flex-row items-center  md:text-base md:font-semibold hover:text-gray-300 md:block {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %} md:mr-5" href="{{ path('app_register') }}">
         <span>S'inscrire</span>
       </a>

@@ -19,37 +19,32 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
-        $form = $this->createForm(RegistrationType::class, $user);  // Correct form type reference
+        $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
             $confirmPassword = $form->get('confirmPassword')->getData();
 
-            // Vérifier que les mots de passe correspondent
+
             if ($plainPassword !== $confirmPassword) {
                 $form->get('confirmPassword')->addError(new FormError('Passwords do not match.'));
             }
 
             if (!$form->isValid()) {
-                // Si les mots de passe ne correspondent pas, le formulaire ne sera pas validé
                 return $this->render('registration/register.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
             }
 
-            // Assurez-vous que le pseudo est bien défini
             $username = $form->get('username')->getData();
             $user->setUsername($username);
 
-            // Encoder le mot de passe
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // Connecter l'utilisateur après l'inscription
             return $security->login($user, 'form_login', 'main');
         }
 

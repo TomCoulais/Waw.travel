@@ -52,7 +52,6 @@ class RoadTripController extends AbstractController
                     );
                     $roadTrip->setCoverImage($newFilename);
                 } catch (FileException $e) {
-                    // Ajoutez un message flash pour informer de l'erreur
                     $this->addFlash('error', 'Une erreur s\'est produite lors du téléchargement de l\'image.');
                 }
             }
@@ -64,7 +63,6 @@ class RoadTripController extends AbstractController
             return $this->redirectToRoute('app_roadtrips');
         }
     
-        // Si le formulaire n'est pas soumis ou valide, renvoyez le formulaire
         return $this->render('roadtrip/new.html.twig', [
             'controller_name' => 'VoyageController',
             'form' => $form,

@@ -39,7 +39,6 @@ class UserController extends AbstractController
         $roadtripRepository = $entityManager->getRepository(RoadTrip::class);
         $roadtrips = $roadtripRepository->findBy(['user' => $user]);
 
-        // Retourner la vue avec les road trips
         return $this->render('user/show-roadtrip.html.twig', [
             'roadtrips' => $roadtrips,
         ]);
