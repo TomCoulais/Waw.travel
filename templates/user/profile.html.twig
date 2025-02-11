@@ -15,12 +15,12 @@
         </section>
 
         <section class="flex flex-col items-center gap-4 mt-4">
-            <a href="{{ path('app_user_roadtrip', { 'username': app.user.username }) }}" class="w-full bg-button p-4 text-xl text-white font-semibold rounded-xl">
+            <a href="{{ path('app_user_roadtrip', { 'username': app.user.username }) }}" class="w-full md:w-96 hover:bg-blackgreen bg-button p-4 text-xl text-white font-semibold rounded-xl">
                 🚗 Gérer mes road trips
             </a>
-            <button class="w-full bg-button p-4 text-xl text-left text-white font-semibold rounded-xl">
-                ⚙️ Paramètres de l'utilisateur
-            </button>
+            <a href="{{ path('app_logout') }}" class="w-full bg-red-800 hover:bg-red-500 md:w-96 p-4 text-xl text-white font-semibold rounded-xl">
+                👋 Déconnexion
+            </a>
         </section>
     </div>
 {% endblock %}

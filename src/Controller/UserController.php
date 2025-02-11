@@ -74,7 +74,7 @@ class UserController extends AbstractController
     }
     
 
-    #[Route('/profil/roadtrip/supprimer/{id}', name: 'app_delete_roadtrip', methods: ['POST'])]
+    #[Route('/profil/roadtrip/supprimer/{id}', name: 'app_delete_roadtrip', methods: ['GET'])]
     public function delete($id, EntityManagerInterface $entityManager): Response
     {
         $roadTrip = $entityManager->getRepository(RoadTrip::class)->find($id);

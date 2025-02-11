@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voyages{% endblock %}
+{% block title %}Road trips{% endblock %}
 
 {% block body %}
 <div class="container mx-auto my-8">
 
     <div class="community-voyage mb-12 md:mt-24">
-        <h2 class="text-4xl font-semibold text-center mb-4">Voyages communautaires</h2>
+        <h2 class="text-4xl font-semibold text-center mb-4">Road trips communautaires</h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
-          {% for voyages in communityVoyage %}
+          {% for voyages in communityRoadTrip %}
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <img class="" src="{{ asset('uploads/' ~ voyages.coverImage) }}" alt="{{ voyages.title }}"
                     class="w-full h-64 object-cover rounded-t-lg">

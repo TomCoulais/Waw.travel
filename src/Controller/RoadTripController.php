@@ -19,10 +19,10 @@ class RoadTripController extends AbstractController
     {
         $repository = $entityManager->getRepository(RoadTrip::class);
         
-        $communityVoyage = $repository->findBy(['isCommunity' => true]);
+        $communityRoadTrip = $repository->findBy(['isCommunity' => true]);
         
         return $this->render('roadtrip/index.html.twig', [    
-            'communityVoyage' => $communityVoyage,
+            'communityRoadTrip' => $communityRoadTrip,
         ]);
     }
 
