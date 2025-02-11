@@ -4,8 +4,8 @@ INSERT INTO "vehicle" (type) VALUES
 ('Van');
 
 INSERT INTO "road_trip" (title, cover_image, vehicle_id, user_id, start_date, end_date, is_community) VALUES
-('Trip to the mountains', 'cover1.jpg', 1, 1, '2025-06-01', '2025-06-10', false),
-('Desert adventure', 'cover2.jpg', 2, 2, '2025-07-15', '2025-07-25', true);
+('Trip to the mountains', '67ab5c7e36a4c.jpg', 1, 1, '2025-06-01', '2025-06-10', false),
+('Desert adventure', 'cover2.jpg', 2, 1, '2025-07-15', '2025-07-25', true);
 
 INSERT INTO "checkpoint" (spot_name, longitude, latitude, road_trip_id) VALUES
 ('Mountain View', 45.6789, -73.4567, 1),
